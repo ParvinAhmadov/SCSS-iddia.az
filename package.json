@@ -1,0 +1,17 @@
+{
+  "name": "management",
+  "version": "1.0.0",
+  "scripts": {
+      "client": "cd client && yarn start",
+      "server": "nodemon server.js",
+      "dev": "sass src/scss:css"
+  },
+  "dependencies": {
+      "body-parser": "^1.18.3",
+      "express": "^4.16.4",
+      "nodemon": "^1.18.10"
+  },
+  "devDependencies": {
+      "concurrently": "^4.1.0"
+  }
+}

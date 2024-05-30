@@ -1,0 +1,260 @@
+@use "../../utils/variables" as *;
+@use "../../utils/mixins" as *;
+@use "../../extend/extend" as *;
+
+body {
+  background-color: #fbfbff;
+}
+.container {
+  margin: $default_margin;
+}
+
+.man {
+  position: fixed;
+  transition: all 0.25s ease-in-out;
+  &:hover {
+    transform: scale(1.1);
+  }
+  z-index: 1;
+  cursor: pointer;
+  right: 0;
+  margin: 20px 20px;
+  @include Flexible($justify: center, $item: center);
+  background-color: $primary_color;
+  width: 64px;
+  height: 64px;
+  border-radius: 50px;
+  .man-1 {
+    border: 2px solid $white_color;
+    height: 48px;
+    width: 48px;
+    border-radius: 50px;
+  }
+  i {
+    margin-top: 6px;
+    margin-left: 13px;
+    color: $white_color;
+    font-size: 30px;
+  }
+}
+
+.up-nav {
+  @include Flexible($justify: space-between, $item: center);
+  padding: $default-padding;
+  background-color: $nav_background;
+}
+.upnav-adress {
+  @include Flexible(null, $gap: 20px, $item: center);
+  a:nth-child(1) {
+    @extend %links_extended;
+  }
+  a:nth-child(2) {
+    @extend %links_extended1;
+  }
+  a:nth-child(3) {
+    @extend %links_extended1;
+  }
+}
+.up-search {
+  button {
+    padding: 15px 15px;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    i {
+      color: rgb(94, 94, 94);
+    }
+  }
+}
+@media (max-width: 768px) {
+  .up-search,
+  .lower-text {
+    display: none;
+  }
+}
+
+.lower-nav {
+  @include Flexible($justify: space-between, $item: center);
+  padding: $default-padding2;
+}
+.lower-ul {
+  @include Flexible($item: center, $gap: 20px);
+  list-style: none;
+  font-weight: 600;
+  font-size: $font-size-2xl;
+  a {
+    text-decoration: none;
+    color: $nav_color;
+  }
+}
+
+hr {
+  border: 1px solid rgb(224, 223, 223);
+}
+
+.cards-grid {
+  @include responsive-grid(3, 30px);
+  margin-top: 7%;
+  padding: $default-padding2;
+
+  .card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.381);
+    cursor: pointer;
+    transition: all 0.25s ease-in-out;
+    &:hover {
+      transform: scale(1.04);
+    }
+
+    .card-img {
+      width: 100%;
+      height: 250px;
+      overflow: hidden;
+    }
+    img {
+      width: 100%;
+      height: 100%;
+    }
+    .card-text {
+      padding: 15px;
+    }
+    span {
+      display: block;
+      color: #999;
+      font-size: $font-size-sm;
+      margin-bottom: 5px;
+    }
+    h2 {
+      font-size: $font-size-lg;
+      color: $primary_color;
+      margin: 0;
+    }
+  }
+}
+.down-buttons {
+  display: flex;
+  grid-column: 3/4;
+  gap: 10px;
+  justify-content: flex-end;
+  padding: $default-padding;
+  margin-bottom: 20px;
+  margin-top: 20px;
+
+  button {
+    @extend %Button_extended;
+  }
+  button:nth-child(2) {
+    background-color: #1e1eda;
+    color: white;
+    border-radius: 5px;
+  }
+  button:nth-child(5) {
+    background-color: #1e1eda;
+    color: white;
+    border-radius: 5px;
+  }
+}
+
+.fotter {
+  background-color: $nav_background;
+  padding: $default-padding2;
+  color: $footer_color;
+  .up-fotter {
+    @include responsive-grid-1(2, 20px);
+    align-items: center;
+    .footer-img {
+      img {
+        width: 100px;
+      }
+    }
+    .up-logo {
+      text-align: right;
+      font-size: $font-size-2xl;
+      word-spacing: 10px;
+      a:nth-child(1) {
+        color: blue;
+      }
+      a {
+        text-decoration: none;
+        &:hover {
+          color: #7070dc;
+        }
+      }
+      a:nth-child(2) {
+        color: rgb(16, 101, 155);
+        &:hover {
+          color: #1e1eda;
+        }
+      }
+      a:nth-child(3) {
+        color: rgb(236, 80, 80);
+        &:hover {
+          color: #f00b0b;
+        }
+      }
+      a:nth-child(4) {
+        color: rgb(107, 190, 241);
+        &:hover {
+          color: #00568f;
+        }
+      }
+      a:nth-child(5) {
+        color: rgb(239, 52, 52);
+        &:hover {
+          color: #a10000;
+        }
+      }
+    }
+  }
+}
+
+.down-fotter {
+  margin-top: 20px;
+  @include Flexible($justify: space-between, $item: center, $gap: 20px);
+  text-align: center;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+  }
+  .down-list {
+    ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      gap: 20px;
+    }
+
+    li {
+      margin-bottom: 10;
+    }
+    a {
+      color: $footer_color;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+  .down-text,
+  .down-text-end {
+    margin-top: 20px;
+    text-align: center;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: blue;
+  border-radius: 10px;
+}
